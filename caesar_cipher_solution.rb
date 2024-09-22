@@ -14,11 +14,7 @@ def caesar_cipher(input_string, shift_step)
     get_step_index(("a".."z"), char, shift_step)
   end
   merged = cap.zip(non_cap).map do |x, y|
-    if x == y
-      x
-    else
-      x.is_a?(Integer) ? ("A".."Z").compact[x % ("A".."Z").count] : ("a".."z").compact[y % ("a".."z").count]
-    end
+    x == y ? x : x.is_a?(Integer) ? ("A".."Z").compact[x % ("A".."Z").count] : ("a".."z").compact[y % ("a".."z").count]
   end
   puts merged.join
 end
